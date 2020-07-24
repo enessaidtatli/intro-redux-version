@@ -10,8 +10,7 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
-  NavbarText
+  DropdownItem
 } from 'reactstrap';
 
 export default class Navi extends React.Component {
@@ -34,10 +33,10 @@ export default class Navi extends React.Component {
     return (
         <div>
           <Navbar color="light" light expand="md">
-            <NavbarBrand href="/">reactstrap</NavbarBrand>
+            <NavbarBrand href="/">REDUX TRAINING APP</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="mr-auto" navbar>
+              <Nav className="ml-auto" navbar>
                 <NavItem>
                   <NavLink href="/components/">Components</NavLink>
                 </NavItem>
@@ -62,7 +61,6 @@ export default class Navi extends React.Component {
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </Nav>
-              <NavbarText>Simple Text</NavbarText>
             </Collapse>
           </Navbar>
         </div>

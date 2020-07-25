@@ -6,12 +6,13 @@ import {
   DropdownItem,
   NavItem,
   NavLink,
-  Badge,
+  Badge
 } from "reactstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as cartActions from "../../redux/actions/cartActions";
 import alertify from "alertifyjs";
+import { Link } from "react-router-dom";
 
 class CartSummary extends Component {
   renderEmpty = () => {
@@ -23,14 +24,15 @@ class CartSummary extends Component {
   };
 
   removeFromCart = (product, quantity) => {
-    this.props.action.removeFromCart({quantity: quantity, product: product});
+    this.props.action.removeFromCart({ quantity: quantity, product: product });
     if (quantity === 1) {
-      alertify.error(product.productName + "\tsepetten silindi")
-    }else{
-      alertify.warning(product.productName + "\t isimli ürün sepetten 1 adet çıkarıldı")
+      alertify.error(product.productName + "\tsepetten silindi");
+    } else {
+      alertify.warning(
+        product.productName + "\t isimli ürün sepetten 1 adet çıkarıldı"
+      );
     }
-    
-  }
+  };
 
   renderSummary = () => {
     return (
@@ -41,14 +43,23 @@ class CartSummary extends Component {
         <DropdownMenu right>
           {this.props.cart.map((cartItem) => (
             <DropdownItem key={cartItem.product.id}>
-            <Badge color="danger" onClick={() => this.removeFromCart(cartItem.product, cartItem.quantity)} >{cartItem.quantity > 1 ? "-" : "X"}</Badge>
+              <Badge
+                color="danger"
+                onClick={() =>
+                  this.removeFromCart(cartItem.product, cartItem.quantity)
+                }
+              >
+                {cartItem.quantity > 1 ? "-" : "X"}
+              </Badge>
               {" " + cartItem.product.productName + " "}
               <Badge color="success">{cartItem.quantity}</Badge>
             </DropdownItem>
           ))}
           <DropdownItem>Option 1</DropdownItem>
           <DropdownItem divider />
-          <DropdownItem>Sepete Git</DropdownItem>
+          <DropdownItem>
+            <Link to="cart">Sepete Git</Link>
+          </DropdownItem>
         </DropdownMenu>
       </UncontrolledDropdown>
     );
@@ -69,12 +80,12 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch){
-    return {
-        action: {
-            removeFromCart: bindActionCreators(cartActions.removeFromCart, dispatch)
-        }
-    }   
+function mapDispatchToProps(dispatch) {
+  return {
+    action: {
+      removeFromCart: bindActionCreators(cartActions.removeFromCart, dispatch),
+    },
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartSummary);

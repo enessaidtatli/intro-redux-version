@@ -5,14 +5,17 @@ import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Provider } from "react-redux";
 import configureStrore from "./redux/reducers/configureStore";
-import "alertifyjs/build/css/alertify.min.css"
+import "alertifyjs/build/css/alertify.min.css";
+import { BrowserRouter } from "react-router-dom";
 
 const store = configureStrore();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

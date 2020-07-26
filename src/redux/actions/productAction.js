@@ -19,14 +19,14 @@ export function getProducts(categoryId) {
   };
 }
 
-export function createProductsSuccess(product) {
+export function createProductSuccess(product) {
   return {
     type: actionTypes.CREATE_PRODUCT_SUCCESS,
     payload: product,
   };
 }
 
-export function updateProductsSuccess(product) {
+export function updateProductSuccess(product) {
   return {
     type: actionTypes.UPDATE_PRODUCT_SUCCESS,
     payload: product,
@@ -44,14 +44,16 @@ export function saveProductApi(product) {
 }
 
 export function saveProduct(product) {
-  return function (dispatch) {
-    return saveProductApi(product).then((savedProduct) => {
-      product.id
-        ? dispatch(updateProductsSuccess(savedProduct))
-        : dispatch(createProductsSuccess(savedProduct)).catch((error) => {
-            throw error;
-          });
-    });
+  return function(dispatch) {
+    return saveProductApi(product)
+      .then(savedProduct => {
+        product.id
+          ? dispatch(updateProductSuccess(savedProduct))
+          : dispatch(createProductSuccess(savedProduct));
+      })
+      .catch(error => {
+        throw error;
+      });
   };
 }
 

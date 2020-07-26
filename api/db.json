@@ -615,6 +615,61 @@
       "quantityPerUnit": "1",
       "unitsInStock": "2",
       "id": 78
+    },
+    {
+      "productName": "aads",
+      "categoryId": 1,
+      "unitPrice": "sda",
+      "quantityPerUnit": "dasd",
+      "unitInStock": "da",
+      "id": 79
+    },
+    {
+      "productName": "dasdsdad",
+      "categoryId": 1,
+      "unitPrice": "33",
+      "quantityPerUnit": "2",
+      "unitInStock": "1",
+      "id": 80
+    },
+    {
+      "productName": "sdas",
+      "categoryId": 1,
+      "unitPrice": "2",
+      "quantityPerUnit": "1",
+      "unitInStock": "3",
+      "id": 81
+    },
+    {
+      "productName": "sdad",
+      "categoryId": 4,
+      "unitPrice": "2",
+      "quantityPerUnit": "2",
+      "unitInStock": "1",
+      "id": 82
+    },
+    {
+      "productName": "Çanta",
+      "categoryId": 7,
+      "unitPrice": "30",
+      "quantityPerUnit": "2",
+      "unitInStock": "990",
+      "id": 83
+    },
+    {
+      "productName": "krem",
+      "categoryId": 3,
+      "unitPrice": "2",
+      "quantityPerUnit": "1",
+      "unitsInStock": "3434",
+      "id": 84
+    },
+    {
+      "productName": "",
+      "unitPrice": "sdada",
+      "quantityPerUnit": "dad",
+      "unitsInStock": "sdada",
+      "id": 85
     }
   ],
   "categories": [
